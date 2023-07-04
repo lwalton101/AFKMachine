@@ -14,7 +14,7 @@ let config = JSON.parse(rawdata);
 let email = config["email"]
 let ip = config["ip"]
 
-const bot = mineflayer.createBot({
+let bot = mineflayer.createBot({
     host: ip,
     username: email,
     auth: "microsoft"
@@ -25,7 +25,7 @@ bot.on("login", () => {
 });
 
 bot.on("playerJoined", (player)=>{
-    if(Math.floor(Math.random() * 101) < 100){
+    if(Math.floor(Math.random() * 101) > 100){
         bot.chat("You aren't welcome here, " + player.displayName)
     }
 });
@@ -41,4 +41,14 @@ bot.on("health", ()=> {
         console.log("bot was low on health")
         bot.quit();
     }
+})
+
+bot.on("end", () => {
+    setTimeout(() => {
+        bot = mineflayer.createBot({
+            host: ip,
+            username: email,
+            auth: "microsoft"
+        })
+    }, 25000)
 })
