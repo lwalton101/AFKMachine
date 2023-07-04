@@ -45,7 +45,7 @@ function bindEvents(){
     })
 }
 
-
+bindEvents()
 
 bot.on("end", () => {
     setTimeout(() => {
