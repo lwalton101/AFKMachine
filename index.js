@@ -31,7 +31,7 @@ bot.on("playerJoined", (player)=>{
 });
 
 bot.on("chat", (username, message) => {
-    if("ryan" in message){
+    if(message.includes("ryan")){
         bot.chat("tang")
     }
 })
