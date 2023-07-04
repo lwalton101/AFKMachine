@@ -24,6 +24,18 @@ bot.on("login", () => {
     console.log("Logged into Server!")
 });
 
+bot.on("playerJoined", (player)=>{
+    if(Math.floor(Math.random() * 101) < 100){
+        bot.chat("You aren't welcome here, " + player.displayName)
+    }
+});
+
+bot.on("chat", (username, message) => {
+    if("ryan" in message){
+        bot.chat("tang")
+    }
+})
+
 bot.on("health", ()=> {
     if(bot.health < 4){
         console.log("bot was low on health")
