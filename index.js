@@ -19,3 +19,14 @@ const bot = mineflayer.createBot({
     username: email,
     auth: "microsoft"
 })
+
+bot.on("login", () => {
+    console.log("Logged into Server!")
+});
+
+bot.on("health", ()=> {
+    if(bot.health < 4){
+        console.log("bot was low on health")
+        bot.quit();
+    }
+})
